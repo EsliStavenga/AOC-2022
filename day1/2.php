@@ -2,10 +2,10 @@
 
 require_once('../shared/InputManager.php');
 
-$data = (new InputManager())->loadInputForDay();
+$data = (new InputManager())->loadLinesForDay();
 $elves = [[]];
 
-foreach(explode(PHP_EOL, $data) as $elfData) {
+foreach($data as $elfData) {
   if(empty($elfData)) {
     $elves[] = [];
   } else {

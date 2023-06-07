@@ -13,4 +13,9 @@ class InputManager
 
     return file_get_contents(__DIR__ . "/../input/$env/$wd.input");
   }
+
+  public function loadLinesForDay(string $env = 'real'): array
+  {
+    return explode(PHP_EOL, $this->loadInputForDay($env));
+  }
 }

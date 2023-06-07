@@ -3,11 +3,11 @@
 require_once('../shared/InputManager.php');
 require_once('Move.php');
 
-$data = (new InputManager())->loadInputForDay();
+$data = (new InputManager())->loadLinesForDay();
 
 $score = 0;
 
-foreach(explode(PHP_EOL, $data) as $play) {
+foreach($data as $play) {
   /** @var Move[] $moves */
   $moves = array_map('Move::fromValue', explode(' ', $play));
   $opponentMove = $moves[0];
