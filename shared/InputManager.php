@@ -16,6 +16,11 @@ class InputManager
 
   public function loadLinesForDay(string $env = 'real'): array
   {
-    return explode(PHP_EOL, $this->loadInputForDay($env));
+    $lines =  explode(PHP_EOL, $this->loadInputForDay($env));
+    if(empty(end($lines))) {
+      array_pop($lines);
+    }
+
+    return $lines;
   }
 }
